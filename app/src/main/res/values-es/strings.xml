@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AA3_App_Companion</string>
+    <string name="username">Usuario</string>
+    <string name="passwrod">Contraseña</string>
+    <string name="repeat_passwrod">Repite Contraseña</string>
+    <string name="login">Entra</string>
+    <string name="register_text">Registrate Ahora</string>
+    <string name="register">Registrate</string>
+</resources>

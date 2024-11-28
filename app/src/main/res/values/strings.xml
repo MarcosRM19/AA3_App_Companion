@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AA3_App_Companion</string>
+    <string name="username">Username</string>
+    <string name="passwrod">Password</string>
+    <string name="repeat_passwrod">Repeat Password</string>
+    <string name="login">Login</string>
+    <string name="register_text">Register Now</string>
+    <string name="register">Register</string>
+</resources>
