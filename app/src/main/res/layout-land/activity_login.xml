@@ -45,7 +45,7 @@
             android:layout_weight="1">
 
             <FrameLayout
-                android:layout_width="wrap_content"
+                android:layout_width="530dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center">
 
@@ -53,8 +53,7 @@
                     android:id="@+id/userNameBackGround"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/gold"
-                    android:scaleX="0.7"/>
+                    android:background="@color/gold" />
 
                 <View
                     android:id="@+id/usernameSecondBackGround"
@@ -62,7 +61,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:background="@color/backGround"
-                    android:scaleX="0.68" />
+                    android:scaleX="0.97" />
 
                 <EditText
                     android:id="@+id/usernameText"
@@ -72,13 +71,13 @@
                     android:hint="@string/username"
                     android:maxLength="20"
                     android:singleLine="true"
-                    android:paddingStart ="150dp"
+                    android:scaleX="0.95"
                     android:textColorHint="@android:color/darker_gray"
                     android:textColor="@android:color/darker_gray"/>
             </FrameLayout>
 
             <FrameLayout
-                android:layout_width="wrap_content"
+                android:layout_width="530dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp">
@@ -87,8 +86,7 @@
                     android:id="@+id/passwordBackGround"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/gold"
-                    android:scaleX="0.7" />
+                    android:background="@color/gold" />
 
                 <View
                     android:id="@+id/passwordSecondBackGround"
@@ -96,7 +94,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:background="@color/backGround"
-                    android:scaleX="0.68" />
+                    android:scaleX="0.97" />
                 <EditText
                     android:id="@+id/pawsswordText"
                     android:layout_width="match_parent"
@@ -105,29 +103,28 @@
                     android:hint="@string/passwrod"
                     android:maxLength="20"
                     android:singleLine="true"
-                    android:paddingStart ="150dp"
+                    android:scaleX="0.95"
                     android:textColorHint="@android:color/darker_gray"
                     android:textColor="@android:color/darker_gray"
                     android:inputType="textPassword"/>
             </FrameLayout>
 
             <FrameLayout
-                android:layout_width="match_parent"
+                android:layout_width="220dp"
                 android:layout_height="14dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp">
 
                 <TextView
                     android:id="@+id/registerText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/register_text"
                     android:textSize="10dp"
-                    android:paddingStart ="325dp"
                     android:textColorHint="@android:color/darker_gray" />
                 <Button
                     android:id="@+id/registerButton"
-                    android:layout_width="220dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@android:color/transparent">
@@ -136,7 +133,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:layout_width="wrap_content"
+                android:layout_width="220dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="2dp">
@@ -145,8 +142,7 @@
                     android:id="@+id/loginBackGround"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/gold"
-                    android:scaleX="0.3" />
+                    android:background="@color/gold" />
 
                 <View
                     android:id="@+id/loginSecondBackGround"
@@ -154,11 +150,11 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:background="@color/backGround"
-                    android:scaleX="0.28" />
+                    android:scaleX="0.95" />
 
                 <Button
                     android:id="@+id/loginButton"
-                    android:layout_width="220dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@android:color/transparent">
