@@ -16,4 +16,9 @@
     <string name="intelligence">Inteligencia</string>
     <string name="faith">Fe</string>
     <string name="arcane">Arcano</string>
+    <string name="pergamine">Pergamino</string>
+    <string name="boss">Jefe</string>
+    <string name="armor">Armadura</string>
+    <string name="weapon">Arma</string>
+    <string name="talismane">Talisman</string>
 </resources>

@@ -135,21 +135,22 @@
                 android:layout_weight="0.7">
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp">
 
                     <View
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:background="@color/gold"
-                        android:layout_margin="20dp">
+                        android:scaleX="0.37">
                     </View>
-
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="25dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/lingrave">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/lingrave"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp">
                     </ImageView>
                 </FrameLayout>
             </LinearLayout>

@@ -15,4 +15,9 @@
     <string name="intelligence">Intelligence</string>
     <string name="faith">Faith</string>
     <string name="arcane">Arcane</string>
+    <string name="pergamine">Pergamine</string>
+    <string name="boss">Boss</string>
+    <string name="armor">Armor</string>
+    <string name="weapon">Weapon</string>
+    <string name="talismane">Talismane</string>
 </resources>
