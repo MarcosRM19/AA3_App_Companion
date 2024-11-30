@@ -6,4 +6,13 @@
     <string name="login">Login</string>
     <string name="register_text">Register Now</string>
     <string name="register">Register</string>
+    <string name="attribute">Attribute Points</string>
+    <string name="hp">Vigor</string>
+    <string name="fb">Mind</string>
+    <string name="endurance">Endurance</string>
+    <string name="strenght">Strenght</string>
+    <string name="dexterity">Dexterity</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="faith">Faith</string>
+    <string name="arcane">Arcane</string>
 </resources>

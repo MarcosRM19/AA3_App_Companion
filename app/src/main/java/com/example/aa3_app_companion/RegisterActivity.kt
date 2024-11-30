@@ -23,6 +23,6 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun onButtonClick()
     {
-        startActivity(Intent(this, NewsActivity::class.java))
+        startActivity(Intent(this, ClassesActivity::class.java))
     }
 }
