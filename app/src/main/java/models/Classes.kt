@@ -6,11 +6,16 @@ data class Classes(
     val name: String,
     val description: String,
     val image: String,
-    val hp: Int,
-    val fp: Int,
+    val stats: Stats
+)
+
+data class Stats(
+    val vigor: Int,
+    val mind: Int,
+    val endurance: Int,
     val strength: Int,
     val dexterity: Int,
     val intelligence: Int,
     val faith: Int,
-    val endurance: Int,
+    val arcane: Int
 )
