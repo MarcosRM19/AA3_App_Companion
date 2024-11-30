@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import models.Classes
@@ -24,6 +25,7 @@ class ClassesActivity : AppCompatActivity(), ClassesAdapter.OnButtonClickListene
     private lateinit var bossButton : ImageButton
     private lateinit var chatButton : ImageButton
     private lateinit var profileButton : ImageButton
+    private  lateinit var toolbar : Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +35,9 @@ class ClassesActivity : AppCompatActivity(), ClassesAdapter.OnButtonClickListene
 
         recyclerView = findViewById(R.id.classes_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         fetchClassesData()
         ButtonsLogic()
