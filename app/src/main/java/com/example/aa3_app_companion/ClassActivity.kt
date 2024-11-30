@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
@@ -52,6 +53,9 @@ class ClassActivity : AppCompatActivity() {
         initializeViews()
         GetClassvalues()
         SetClassValues()
+
+        toolbar = findViewById(R.id.classbar)
+        setSupportActionBar(toolbar)
 
     }
 
@@ -121,5 +125,18 @@ class ClassActivity : AppCompatActivity() {
         }.start()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.custom_class_toolbar, menu)
+        return true
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.arrow -> {
+                onBackPressed()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
 }
