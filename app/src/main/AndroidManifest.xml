@@ -15,6 +15,9 @@
         android:theme="@style/Theme.AA3_App_Companion"
         tools:targetApi="31">
         <activity
+            android:name=".MapActivity"
+            android:exported="false" />
+        <activity
             android:name=".ClassActivity"
             android:exported="false" />
         <activity

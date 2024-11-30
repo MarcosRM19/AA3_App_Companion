@@ -2,7 +2,9 @@ package com.example.aa3_app_companion
 
 import android.content.Intent
 import android.os.Bundle
+import android.service.voice.VoiceInteractionSession.ActivityId
 import android.util.Log
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,15 +19,23 @@ import kotlin.concurrent.thread
 class ClassesActivity : AppCompatActivity(), ClassesAdapter.OnButtonClickListener {
 
     private lateinit var recyclerView: RecyclerView
+    private lateinit var mapButton : ImageButton
+    private lateinit var itemButton : ImageButton
+    private lateinit var bossButton : ImageButton
+    private lateinit var chatButton : ImageButton
+    private lateinit var profileButton : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_classes)
 
+        InitButtons()
+
         recyclerView = findViewById(R.id.classes_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         fetchClassesData()
+        ButtonsLogic()
     }
 
     override fun onButtonClick(classes: Classes) {
@@ -100,5 +110,29 @@ class ClassesActivity : AppCompatActivity(), ClassesAdapter.OnButtonClickListene
                 }
             }
         }
+    }
+
+    private  fun InitButtons()
+    {
+        mapButton = findViewById(R.id.map);
+        itemButton = findViewById(R.id.item);
+        bossButton = findViewById(R.id.boss);
+        chatButton = findViewById(R.id.chat);
+        profileButton = findViewById(R.id.profile);
+    }
+
+    private fun ButtonsLogic()
+    {
+        mapButton.setOnClickListener{(ChangeActivity(MapActivity::class.java))}
+        itemButton.setOnClickListener{(ChangeActivity(MapActivity::class.java))}
+        bossButton.setOnClickListener{(ChangeActivity(MapActivity::class.java))}
+        chatButton.setOnClickListener{(ChangeActivity(MapActivity::class.java))}
+        profileButton.setOnClickListener{(ChangeActivity(MapActivity::class.java))}
+    }
+
+    private fun ChangeActivity(activityClass: Class<*>)
+    {
+        val intent = Intent(this, activityClass)
+        startActivity(intent)
     }
 }
