@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewsActivity">
+    tools:context=".ClassesActivity">
 
     <ImageView
         android:id="@+id/backgroundImage"
@@ -22,8 +22,9 @@
         android:alpha="0.9" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/classes_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

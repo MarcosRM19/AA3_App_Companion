@@ -7,4 +7,13 @@
     <string name="login">Entra</string>
     <string name="register_text">Registrate Ahora</string>
     <string name="register">Registrate</string>
+    <string name="attribute">Puntos de atributo</string>
+    <string name="hp">Vigor</string>
+    <string name="fb">Mente</string>
+    <string name="endurance">Stamina</string>
+    <string name="strenght">Fuerza</string>
+    <string name="dexterity">Destreza</string>
+    <string name="intelligence">Inteligencia</string>
+    <string name="faith">Fe</string>
+    <string name="arcane">Arcano</string>
 </resources>

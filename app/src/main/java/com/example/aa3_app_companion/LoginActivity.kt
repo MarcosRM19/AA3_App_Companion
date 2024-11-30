@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun onButtonClickLogin()
     {
-        startActivity(Intent(this, NewsActivity::class.java))
+        startActivity(Intent(this, ClassesActivity::class.java))
     }
 
     private fun onButtonClickRegister()
