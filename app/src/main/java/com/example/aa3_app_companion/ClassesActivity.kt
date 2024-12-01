@@ -64,7 +64,6 @@ class ClassesActivity : AppCompatActivity(), ClassesAdapter.OnButtonClickListene
         EldenRingApiInstance.apiService.getClasses(limit = 20).enqueue(object : Callback<ClassesResponse> {
             override fun onResponse(call: Call<ClassesResponse>, response: Response<ClassesResponse>) {
                 if (response.isSuccessful) {
-                    // Accedemos a la lista de clases dentro de la propiedad `data` de la respuesta
                     val classesList = response.body()?.data ?: emptyList()
                     recyclerView.adapter = ClassesAdapter(classesList, this@ClassesActivity)
                 } else {
@@ -89,7 +88,7 @@ class ClassesActivity : AppCompatActivity(), ClassesAdapter.OnButtonClickListene
     private fun ButtonsLogic() {
         mapButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
         itemButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
-        bossButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
+        bossButton.setOnClickListener { ChangeActivity(BossActivity::class.java) }
         chatButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
         profileButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
     }

@@ -6,12 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ClassesActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="match_parent" />
-
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"

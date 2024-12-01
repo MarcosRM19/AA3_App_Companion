@@ -45,7 +45,7 @@ class MapActivity : AppCompatActivity() {
     {
         classesButton.setOnClickListener{(ChangeActivity(ClassesActivity::class.java))}
         itemButton.setOnClickListener{(ChangeActivity(ClassesActivity::class.java))}
-        bossButton.setOnClickListener{(ChangeActivity(ClassesActivity::class.java))}
+        bossButton.setOnClickListener{(ChangeActivity(BossActivity::class.java))}
         chatButton.setOnClickListener{(ChangeActivity(ClassesActivity::class.java))}
         profileButton.setOnClickListener{(ChangeActivity(ClassesActivity::class.java))}
     }
