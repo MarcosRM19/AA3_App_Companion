@@ -144,8 +144,6 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
-
                         android:layout_weight="1">
                         <View
                             android:id="@+id/bosss1Background"
@@ -199,7 +197,6 @@
 
                     </LinearLayout>
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -211,8 +208,6 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
-
                         android:layout_weight="1">
                         <View
                             android:id="@+id/bosss2Background"
@@ -278,8 +273,6 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
-
                         android:layout_weight="1">
                         <View
                             android:id="@+id/bosss3Background"
@@ -333,6 +326,14 @@
 
                     </LinearLayout>
                 </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -412,8 +413,6 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
-
                         android:layout_weight="1">
                         <View
                             android:id="@+id/bosss5Background"
@@ -479,8 +478,6 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
-
                         android:layout_weight="1">
                         <View
                             android:id="@+id/bosss6Background"
@@ -534,6 +531,14 @@
 
                     </LinearLayout>
                 </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -601,13 +606,6 @@
 
                     </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -620,8 +618,6 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
-
                         android:layout_weight="1">
                         <View
                             android:id="@+id/bosss8Background"
@@ -687,8 +683,6 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
-
                         android:layout_weight="1">
                         <View
                             android:id="@+id/bosss9Background"
@@ -742,6 +736,15 @@
 
                     </LinearLayout>
                 </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -820,8 +823,6 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
-
                         android:layout_weight="1">
                         <View
                             android:id="@+id/bosss11Background"
@@ -887,8 +888,6 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
-
                         android:layout_weight="1">
                         <View
                             android:id="@+id/bosss12Background"
@@ -942,6 +941,13 @@
 
                     </LinearLayout>
                 </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1021,8 +1027,6 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
-
                         android:layout_weight="1">
                         <View
                             android:id="@+id/bosss14Background"
@@ -1077,9 +1081,19 @@
                     </LinearLayout>
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="15dp"
+                    android:orientation="horizontal">
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
     </FrameLayout>
+
 
 </LinearLayout>
