@@ -87,7 +87,7 @@ class ClassesActivity : AppCompatActivity(), ClassesAdapter.OnButtonClickListene
 
     private fun ButtonsLogic() {
         mapButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
-        itemButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
+        itemButton.setOnClickListener { ChangeActivity(ItemActivity::class.java) }
         bossButton.setOnClickListener { ChangeActivity(BossActivity::class.java) }
         chatButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
         profileButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }

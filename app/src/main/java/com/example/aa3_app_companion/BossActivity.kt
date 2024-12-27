@@ -231,7 +231,7 @@ class BossActivity : AppCompatActivity() {
 
     private fun ButtonsLogic() {
         classesButton.setOnClickListener { ChangeActivity(ClassesActivity::class.java) }
-        itemButton.setOnClickListener { ChangeActivity(ClassesActivity::class.java) }
+        itemButton.setOnClickListener { ChangeActivity(ItemActivity::class.java) }
         mapButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
         chatButton.setOnClickListener { ChangeActivity(ClassesActivity::class.java) }
         profileButton.setOnClickListener { ChangeActivity(ClassesActivity::class.java) }
