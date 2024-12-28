@@ -116,4 +116,17 @@
     <string name="battlehammerDescription">Large iron great hammer designed for gladiatorial combat. Used by duelists who were exiled from the colosseum</string>
     <string name="bowname">Erdtree Greatbow</string>
     <string name="bowDescription">Greatbow featuring Erdtree styling. In times of old, when faith and battle went hand in hand, this weapon was created in tandem with the Golden Great Arrow</string>
+    <string name="Int">Int</string>
+    <string name="Faith">FTH</string>
+    <string name="Arcane">ARC</string>
+    <string name="STD">STD</string>
+    <string name="STR">STR</string>
+    <string name="PRC">PRC</string>
+    <string name="SLS">SLS</string>
+    <string name="MGC">MGC</string>
+    <string name="FRE">FRE</string>
+    <string name="LGT">LGT</string>
+    <string name="HLY">HLY</string>
+    <string name="PHS">PHS</string>
+    <string name="CRT">CRT</string>
 </resources>

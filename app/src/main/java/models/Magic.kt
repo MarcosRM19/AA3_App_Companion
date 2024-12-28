@@ -3,7 +3,7 @@ package models
 data class Magic(
     val name: Int,
     val description: Int,
-    val Type: Int,
+    val type: Int,
     val attribute: Attributes,
     val image: Int
 )

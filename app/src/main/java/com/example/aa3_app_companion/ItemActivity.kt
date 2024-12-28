@@ -2,6 +2,7 @@ package com.example.aa3_app_companion
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
@@ -75,9 +76,38 @@ class ItemActivity : AppCompatActivity() {
             R.id.item11Image,
             R.id.item12Image,
         )
+
+        val talismanButtonIds = listOf(
+            R.id.buttonitem1,
+            R.id.buttonitem2,
+            R.id.buttonitem3,
+            R.id.buttonitem4,
+            R.id.buttonitem5,
+            R.id.buttonitem6,
+            R.id.buttonitem7,
+            R.id.buttonitem8,
+            R.id.buttonitem9,
+            R.id.buttonitem10,
+            R.id.buttonitem11,
+            R.id.buttonitem12,
+        )
+
         for (i in talismans.indices) {
             SetTalismanImage(talismanImageIds[i], talismans[i].image)
+            val button = findViewById<Button>(talismanButtonIds[i])
+            button.setOnClickListener {
+                OpenTalismanActivity(TalismanActivity::class.java, talismans[i])
+            }
         }
+    }
+
+    private fun OpenTalismanActivity(activityClass: Class<*>, item: Talisman) {
+        val intent = Intent(this, activityClass)
+        intent.putExtra("NAME", getString(item.name))
+        intent.putExtra("DESCRIPTION", getString(item.description))
+        intent.putExtra("EFFECT", getString(item.effect))
+        intent.putExtra("IMAGE", item.image)
+        startActivity(intent)
     }
 
     private  fun InitMagic()
@@ -95,9 +125,34 @@ class ItemActivity : AppCompatActivity() {
             R.id.item16Image,
             R.id.item17Image,
         )
+
+
+        val magicButtonIds = listOf(
+            R.id.buttonitem13,
+            R.id.buttonitem14,
+            R.id.buttonitem15,
+            R.id.buttonitem16,
+        )
+
         for (i in magics.indices) {
             SetTalismanImage(magicsImages[i], magics[i].image)
+            val button = findViewById<Button>(magicButtonIds[i])
+            button.setOnClickListener {
+                OpenMagicActivity(MagicActivity::class.java, magics[i])
+            }
         }
+    }
+
+    private fun OpenMagicActivity(activityClass: Class<*>, item: Magic) {
+        val intent = Intent(this, activityClass)
+        intent.putExtra("NAME", getString(item.name))
+        intent.putExtra("DESCRIPTION", getString(item.description))
+        intent.putExtra("TYPE", getString(item.type))
+        intent.putExtra("INT", item.attribute.int)
+        intent.putExtra("FAITH", item.attribute.faith)
+        intent.putExtra("ARCANE", item.attribute.arcane)
+        intent.putExtra("IMAGE", item.image)
+        startActivity(intent)
     }
 
     private  fun InitArmor()
@@ -123,9 +178,41 @@ class ItemActivity : AppCompatActivity() {
             R.id.item24Image,
             R.id.item25Image,
         )
+
+        val armorButtonIds = listOf(
+            R.id.buttonitem17,
+            R.id.buttonitem18,
+            R.id.buttonitem19,
+            R.id.buttonitem20,
+            R.id.buttonitem21,
+            R.id.buttonitem22,
+            R.id.buttonitem23,
+            R.id.buttonitem24,
+        )
+
         for (i in armors.indices) {
             SetTalismanImage(armorsImage[i], armors[i].image)
+            val button = findViewById<Button>(armorButtonIds[i])
+            button.setOnClickListener {
+                OpenArmorActivity(ArmorActivity::class.java, armors[i])
+            }
         }
+    }
+
+    private fun OpenArmorActivity(activityClass: Class<*>, item: Armor) {
+        val intent = Intent(this, activityClass)
+        intent.putExtra("NAME", getString(item.name))
+        intent.putExtra("DESCRIPTION", getString(item.description))
+        intent.putExtra("STD", item.DamageNegation.Standard.toString())
+        intent.putExtra("STR", item.DamageNegation.Strike.toString())
+        intent.putExtra("PRC", item.DamageNegation.Pierce.toString())
+        intent.putExtra("SLS", item.DamageNegation.Slash.toString())
+        intent.putExtra("MGC", item.DamageNegation.Magic.toString())
+        intent.putExtra("FRE", item.DamageNegation.Fire.toString())
+        intent.putExtra("LGT", item.DamageNegation.Lightning.toString())
+        intent.putExtra("HLY", item.DamageNegation.Holy.toString())
+        intent.putExtra("IMAGE", item.image)
+        startActivity(intent)
     }
 
     private  fun InitWeapon()
@@ -167,9 +254,47 @@ class ItemActivity : AppCompatActivity() {
             R.id.item40Image,
             R.id.item41Image
         )
+
+        val weaponButtonIds = listOf(
+            R.id.buttonitem25,
+            R.id.buttonitem26,
+            R.id.buttonitem27,
+            R.id.buttonitem28,
+            R.id.buttonitem29,
+            R.id.buttonitem30,
+            R.id.buttonitem31,
+            R.id.buttonitem32,
+            R.id.buttonitem33,
+            R.id.buttonitem34,
+            R.id.buttonitem35,
+            R.id.buttonitem36,
+            R.id.buttonitem37,
+            R.id.buttonitem38,
+            R.id.buttonitem39,
+            R.id.buttonitem40,
+        )
+
         for (i in weapons.indices) {
             SetTalismanImage(weaponsImage[i], weapons[i].image)
+            val button = findViewById<Button>(weaponButtonIds[i])
+            button.setOnClickListener {
+                OpenWeaponActivity(WeaponActivity::class.java, weapons[i])
+            }
         }
+    }
+
+    private fun OpenWeaponActivity(activityClass: Class<*>, item: Weapon) {
+        val intent = Intent(this, activityClass)
+        intent.putExtra("NAME", getString(item.name))
+        intent.putExtra("DESCRIPTION", getString(item.description))
+        intent.putExtra("PHS", item.attackpower.physical.toString())
+        intent.putExtra("MGC", item.attackpower.magic.toString())
+        intent.putExtra("FRE", item.attackpower.fire.toString())
+        intent.putExtra("LGT", item.attackpower.lightning.toString())
+        intent.putExtra("HLY", item.attackpower.holy.toString())
+        intent.putExtra("CRT", item.attackpower.critical.toString())
+        intent.putExtra("IMAGE", item.image)
+        startActivity(intent)
     }
 
     private fun SetTalismanImage(index:Int, image:Int)

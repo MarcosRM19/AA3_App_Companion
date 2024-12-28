@@ -117,4 +117,17 @@
     <string name="battlehammerDescription">Gran martillo de hierro diseñado para el combate de gladiadores. Usado por duelistas que fueron exiliados del coliseo</string>
     <string name="bowname">Gran arco del Erdtree</string>
     <string name="bowDescription">Gran arco con estilo Erdtree. En la antigüedad, cuando la fe y la batalla iban de la mano, esta arma se creó junto con la Gran Flecha Dorada</string>
+    <string name="Int">Int</string>
+    <string name="Faith">FTH</string>
+    <string name="Arcane">ARC</string>
+    <string name="STD">STD</string>
+    <string name="STR">STR</string>
+    <string name="PRC">PRC</string>
+    <string name="SLS">SLS</string>
+    <string name="MGC">MGC</string>
+    <string name="FRE">FRE</string>
+    <string name="LGT">LGT</string>
+    <string name="HLY">HLY</string>
+    <string name="PHS">PHS</string>
+    <string name="CRT">CRT</string>
 </resources>
