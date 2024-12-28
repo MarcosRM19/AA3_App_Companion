@@ -10,10 +10,12 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import models.Armor
+import models.AttackPower
 import models.Attributes
 import models.DamageNegation
 import models.Magic
 import models.Talisman
+import models.Weapon
 
 class ItemActivity : AppCompatActivity() {
 
@@ -36,6 +38,7 @@ class ItemActivity : AppCompatActivity() {
         InitTalisman()
         InitMagic()
         InitArmor()
+        InitWeapon()
 
         ButtonsLogic()
 
@@ -125,12 +128,55 @@ class ItemActivity : AppCompatActivity() {
         }
     }
 
+    private  fun InitWeapon()
+    {
+        val weapons = listOf(
+            Weapon(R.string.daggername, R.string.daggerDescription, AttackPower(74,0,0,0,0,130),R.drawable.dagger),
+            Weapon(R.string.halbertname, R.string.halbertDescription, AttackPower(134,0,0,0,0,100),R.drawable.halberd),
+            Weapon(R.string.reduvianame, R.string.reduviaDescription, AttackPower(79,0,0,0,0,110),R.drawable.reduvia),
+            Weapon(R.string.steelname, R.string.steelname, AttackPower(67,0,0,0,0,110),R.drawable.steel),
+            Weapon(R.string.fangname, R.string.fangDescription, AttackPower(141,0,0,0,0,100),R.drawable.fang),
+            Weapon(R.string.estocname, R.string.estocDescription, AttackPower(107,0,0,0,0,100),R.drawable.estoc),
+            Weapon(R.string.pickname, R.string.pickDescription, AttackPower(108,0,0,0,0,100),R.drawable.pick),
+            Weapon(R.string.greataxename, R.string.greataxeDescription, AttackPower(151,0,0,0,0,100),R.drawable.greataxe),
+            Weapon(R.string.uchigatananame, R.string.uchigatanaDescription, AttackPower(115,0,0,0,0,100),R.drawable.uchigatana),
+            Weapon(R.string.shirname, R.string.shirDescription, AttackPower(108,0,0,0,0,100),R.drawable.shir),
+            Weapon(R.string.spearname, R.string.spearDescription, AttackPower(112,0,0,0,0,100),R.drawable.spear),
+            Weapon(R.string.longspearname, R.string.longspearDescription, AttackPower(114,0,0,0,0,100),R.drawable.longspear),
+            Weapon(R.string.greatswordname, R.string.greatswordDescription, AttackPower(136,0,0,0,0,110),R.drawable.greatsword),
+            Weapon(R.string.falchionname, R.string.falchionDescription, AttackPower(109,0,0,0,0,100),R.drawable.falchion),
+            Weapon(R.string.battlehammername, R.string.battlehammerDescription, AttackPower(131,0,0,0,0,100),R.drawable.battlehammer),
+            Weapon(R.string.bowname, R.string.bowname, AttackPower(60,0,0,0,0,100),R.drawable.bow),
+        )
+
+        val weaponsImage = listOf(
+            R.id.item26Image,
+            R.id.item27Image,
+            R.id.item28Image,
+            R.id.item29Image,
+            R.id.item30Image,
+            R.id.item31Image,
+            R.id.item32Image,
+            R.id.item33Image,
+            R.id.item34Image,
+            R.id.item35Image,
+            R.id.item36Image,
+            R.id.item37Image,
+            R.id.item38Image,
+            R.id.item39Image,
+            R.id.item40Image,
+            R.id.item41Image
+        )
+        for (i in weapons.indices) {
+            SetTalismanImage(weaponsImage[i], weapons[i].image)
+        }
+    }
+
     private fun SetTalismanImage(index:Int, image:Int)
     {
         val imageTalisman = findViewById<ImageView>(index)
         imageTalisman.setImageResource(image)
     }
-
 
 
     private fun InitButtons() {
