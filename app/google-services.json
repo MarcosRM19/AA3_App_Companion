@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "944638528163",
+    "project_id": "app-companion-elden-ring",
+    "storage_bucket": "app-companion-elden-ring.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944638528163:android:ee41ae5b71a81d2270cd16",
+        "android_client_info": {
+          "package_name": "com.example.aa3_app_companion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4ekpPUVQqELVGBieqHk0EeNtAM_t_YDc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
