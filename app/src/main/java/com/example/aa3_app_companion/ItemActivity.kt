@@ -317,7 +317,7 @@ class ItemActivity : AppCompatActivity() {
         bossButton.setOnClickListener { ChangeActivity(BossActivity::class.java) }
         mapButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
         chatButton.setOnClickListener { ChangeActivity(ClassesActivity::class.java) }
-        profileButton.setOnClickListener { ChangeActivity(ClassesActivity::class.java) }
+        profileButton.setOnClickListener { ChangeActivity(ProfileActivity::class.java) }
     }
 
     private fun ChangeActivity(activityClass: Class<*>) {

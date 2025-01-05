@@ -90,7 +90,7 @@ class ClassesActivity : AppCompatActivity(), ClassesAdapter.OnButtonClickListene
         itemButton.setOnClickListener { ChangeActivity(ItemActivity::class.java) }
         bossButton.setOnClickListener { ChangeActivity(BossActivity::class.java) }
         chatButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
-        profileButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
+        profileButton.setOnClickListener { ChangeActivity(ProfileActivity::class.java) }
     }
 
     private fun ChangeActivity(activityClass: Class<*>) {

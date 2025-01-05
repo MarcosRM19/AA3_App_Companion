@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ProfileActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background" />
+
+        <View
+            android:id="@+id/blackOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:alpha="0.9" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/gold"
+            android:layout_margin="10dp" />
+
+        <View
+            android:id="@+id/toolbarBackGround"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/backGround"
+            android:scaleX="0.98"
+            android:scaleY="0.90"
+            android:layout_margin="10dp" />
+
+        <LinearLayout
+            android:id="@+id/custom_toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="10dp">
+
+            <ImageButton
+                android:id="@+id/classes"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@null"
+                android:layout_gravity="center"
+                android:src="@drawable/paper"
+                android:scaleType="fitCenter"
+                android:contentDescription="Classes" />
+
+            <ImageButton
+                android:id="@+id/map"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@null"
+                android:src="@drawable/map"
+                android:scaleType="fitCenter"
+                android:contentDescription="Map" />
+
+            <ImageButton
+                android:id="@+id/item"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@null"
+                android:src="@drawable/sword"
+                android:scaleType="fitCenter"
+                android:contentDescription="Item" />
+
+            <ImageButton
+                android:id="@+id/boss"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@null"
+                android:layout_gravity="center"
+                android:src="@drawable/rune"
+                android:scaleType="fitCenter"
+                android:contentDescription="Boss" />
+            <ImageButton
+                android:id="@+id/chat"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@null"
+                android:src="@drawable/ring"
+                android:scaleType="fitCenter"
+                android:contentDescription="Chat" />
+
+            <FrameLayout
+                android:layout_width="64dp"
+                android:layout_height="match_parent">
+
+                <View
+                    android:id="@+id/buttonBackGround"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gold"
+                    android:alpha="0.5" />
+
+                <ImageButton
+                    android:id="@+id/profile"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@null"
+                    android:contentDescription="Profile"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:src="@drawable/setting" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="150dp"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="256dp"
+                android:layout_height="256dp"
+                android:layout_gravity="center_horizontal">
+                <View
+                    android:id="@+id/background"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gold" />
+                <View
+                    android:id="@+id/background2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@color/backGround" />
+                <ImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/background" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp">
+
+                <FrameLayout
+                    android:layout_width="192dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="125dp">
+                    <View
+                        android:id="@+id/takePictureBackGround"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/gold" />
+
+                    <View
+                        android:id="@+id/takePictureSecondBackGround"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@color/backGround"
+                        android:scaleX="0.95"/>
+                    <Button
+                        android:id="@+id/takePictureText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/Take"
+                        android:textSize="18dp"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textColor="@android:color/darker_gray" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="192dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginRight="125dp">
+                    <View
+                        android:id="@+id/selectPictureBackGround"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/gold" />
+
+                    <View
+                        android:id="@+id/selectPictureSecondBackGround"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@color/backGround"
+                        android:scaleX="0.95"/>
+                    <Button
+                        android:id="@+id/selectPictureText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/Upload"
+                        android:textSize="18dp"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textColor="@android:color/darker_gray" />
+                </FrameLayout>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="50dp">
+                    <FrameLayout
+                        android:layout_width="384dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal">
+                        <View
+                            android:id="@+id/nameBackGround"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/gold" />
+                        <View
+                            android:id="@+id/nameSecondBackGround"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:background="@color/backGround"
+                            android:scaleX="0.95" />
+
+                        <TextView
+                            android:id="@+id/nameText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text=""
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="15dp"
+                            android:textColor="@android:color/darker_gray"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="25sp" />
+                    </FrameLayout>
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="850dp" >
+                    <View
+                        android:id="@+id/buttonNameBackGround"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/gold" />
+                    <Button
+                        android:id="@+id/changeNameButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+                    </Button>
+                </FrameLayout>
+
+            </FrameLayout>
+                </LinearLayout>
+            </FrameLayout>
+</LinearLayout>
+

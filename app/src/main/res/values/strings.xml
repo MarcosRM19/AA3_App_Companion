@@ -129,4 +129,6 @@
     <string name="HLY">HLY</string>
     <string name="PHS">PHS</string>
     <string name="CRT">CRT</string>
+    <string name="Upload">Upload Picture</string>
+    <string name="Take">Take Picture</string>
 </resources>

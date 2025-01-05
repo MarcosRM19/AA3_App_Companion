@@ -15,6 +15,9 @@
         android:theme="@style/Theme.AA3_App_Companion"
         tools:targetApi="31">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".WeaponActivity"
             android:exported="false" />
         <activity
