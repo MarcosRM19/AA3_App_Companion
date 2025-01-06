@@ -35,7 +35,7 @@ class ProfileActivity : AppCompatActivity() {
         classesButton.setOnClickListener { ChangeActivity(ClassesActivity::class.java) }
         itemButton.setOnClickListener { ChangeActivity(ItemActivity::class.java) }
         mapButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
-        chatButton.setOnClickListener { ChangeActivity(ClassesActivity::class.java) }
+        chatButton.setOnClickListener { ChangeActivity(ConversationActivity::class.java) }
         bossButton.setOnClickListener { ChangeActivity(BossActivity::class.java) }
     }
 
