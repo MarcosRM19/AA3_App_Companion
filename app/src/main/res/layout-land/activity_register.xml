@@ -39,8 +39,9 @@
                 android:layout_height="match_parent"
                 android:scaleX="0.9"
                 android:scaleY="0.9"
-                android:layout_weight="0.8"
+                android:layout_weight="0.65"
                 android:src="@drawable/icon" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,12 +50,45 @@
                 android:layout_weight="1">
 
                 <FrameLayout
-                    android:layout_width="530dp"
+                    android:layout_width="285dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center">
 
                     <View
-                        android:id="@+id/userNameBackGround"
+                        android:id="@+id/emailBackGround"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/gold"/>
+
+                    <View
+                        android:id="@+id/emailSecondBackGround"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/backGround"
+                        android:scaleX="0.95" />
+
+                    <EditText
+                        android:id="@+id/emailText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/email"
+                        android:maxLength="20"
+                        android:singleLine="true"
+                        android:scaleX="0.93"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textColor="@android:color/darker_gray"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="285dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp">
+
+                    <View
+                        android:id="@+id/usernameBackGround"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/gold"/>
@@ -65,26 +99,26 @@
                         android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:background="@color/backGround"
-                        android:scaleX="0.97" />
+                        android:scaleX="0.95" />
 
                     <EditText
-                        android:id="@+id/emailText"
+                        android:id="@+id/usernameText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:hint="@string/username"
                         android:maxLength="20"
                         android:singleLine="true"
-                        android:scaleX="0.95"
+                        android:scaleX="0.93"
                         android:textColorHint="@android:color/darker_gray"
                         android:textColor="@android:color/darker_gray"/>
                 </FrameLayout>
 
                 <FrameLayout
-                    android:layout_width="530dp"
+                    android:layout_width="285dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="20dp">
 
                     <View
                         android:id="@+id/passwordBackGround"
@@ -98,26 +132,26 @@
                         android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:background="@color/backGround"
-                        android:scaleX="0.97" />
+                        android:scaleX="0.95" />
                     <EditText
-                        android:id="@+id/pawsswordText"
+                        android:id="@+id/passwordText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:hint="@string/passwrod"
                         android:maxLength="20"
                         android:singleLine="true"
-                        android:scaleX="0.95"
+                        android:scaleX="0.93"
                         android:textColorHint="@android:color/darker_gray"
                         android:textColor="@android:color/darker_gray"
                         android:inputType="textPassword"/>
                 </FrameLayout>
 
                 <FrameLayout
-                    android:layout_width="530dp"
+                    android:layout_width="285dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="20dp">
 
                     <View
                         android:id="@+id/repeatPasswordBackGround"
@@ -131,7 +165,7 @@
                         android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:background="@color/backGround"
-                        android:scaleX="0.97" />
+                        android:scaleX="0.95" />
                     <EditText
                         android:id="@+id/confirmPawsswordText"
                         android:layout_width="match_parent"
@@ -140,7 +174,7 @@
                         android:hint="@string/repeat_passwrod"
                         android:maxLength="20"
                         android:singleLine="true"
-                        android:scaleX="0.95"
+                        android:scaleX="0.93"
                         android:textColorHint="@android:color/darker_gray"
                         android:textColor="@android:color/darker_gray"
                         android:inputType="textPassword"/>
@@ -151,7 +185,7 @@
                     android:layout_width="120dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="30dp">
 
                     <View
                         android:id="@+id/loginBackGround"

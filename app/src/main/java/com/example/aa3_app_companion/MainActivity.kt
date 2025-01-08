@@ -7,27 +7,27 @@ import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var  splashScreenButton : Button
-    private lateinit var analytics: FirebaseAnalytics
-    private lateinit var database: DatabaseReference
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        // Init Firebase analytics
-        analytics = FirebaseAnalytics.getInstance(this)
+        // Init Firebase
+        auth = FirebaseAuth.getInstance()
 
-        // Init Firebase database
-        val databaseUrl = "https://app-companion-elden-ring-default-rtdb.europe-west1.firebasedatabase.app"
-        database = FirebaseDatabase.getInstance(databaseUrl).getReference("messages")
-
+        //Check if user is already logged in
+        val currentUser = auth.currentUser
+        if(currentUser != null) {
+            startActivity(Intent(this, ClassesActivity::class.java))
+            finish()
+        }
 
         splashScreenButton = findViewById(R.id.splashScreenButton)
         splashScreenButton.setOnClickListener {onButtonClick()}
