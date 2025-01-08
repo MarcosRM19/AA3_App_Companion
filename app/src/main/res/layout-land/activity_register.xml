@@ -68,7 +68,7 @@
                         android:scaleX="0.97" />
 
                     <EditText
-                        android:id="@+id/usernameText"
+                        android:id="@+id/emailText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
@@ -133,7 +133,7 @@
                         android:background="@color/backGround"
                         android:scaleX="0.97" />
                     <EditText
-                        android:id="@+id/repeatPawsswordText"
+                        android:id="@+id/confirmPawsswordText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
