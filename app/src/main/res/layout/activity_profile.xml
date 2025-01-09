@@ -173,7 +173,7 @@
                         android:background="@color/backGround"
                         android:scaleX="0.95"/>
                     <Button
-                        android:id="@+id/takePictureText"
+                        android:id="@+id/takePictureButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"

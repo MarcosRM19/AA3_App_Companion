@@ -162,7 +162,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@android:color/transparent">
-
                     </Button>
 
                     <TextView
@@ -176,7 +175,26 @@
                         android:textColorHint="@android:color/darker_gray" />
 
                 </FrameLayout>
+                <FrameLayout
+                    android:layout_width="110dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp">
 
+
+                    <Button
+                        android:id="@+id/googleButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"/>
+
+                    <com.google.android.gms.common.SignInButton
+                        android:id="@+id/google_sign_in_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|center"/>
+
+                </FrameLayout>
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>

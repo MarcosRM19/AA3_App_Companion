@@ -6,11 +6,11 @@ import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
@@ -19,7 +19,9 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var  registerButton : Button
     private lateinit var  emailText : EditText
     private lateinit var  passwordText : EditText
+    private lateinit var googleButton : Button
     private lateinit var  auth: FirebaseAuth
+    private lateinit var googleSignInClient: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,15 +35,16 @@ class LoginActivity : AppCompatActivity() {
         registerButton = findViewById(R.id.registerButton)
         emailText = findViewById(R.id.usernameText)
         passwordText = findViewById(R.id.pawsswordText)
+        googleButton = findViewById(R.id.googleButton)
 
         //Button listeners
         loginButton.setOnClickListener {onButtonClickLogin()}
         registerButton.setOnClickListener {onButtonClickRegister()}
     }
 
+
     private fun onButtonClickLogin()
     {
-
         val email = emailText.text.toString().trim()
         val password = passwordText.text.toString().trim()
 
