@@ -126,8 +126,8 @@
             android:layout_marginTop="150dp"
             android:orientation="vertical">
             <FrameLayout
-                android:layout_width="256dp"
-                android:layout_height="256dp"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
                 android:layout_gravity="center_horizontal">
                 <View
                     android:id="@+id/background"
@@ -151,14 +151,15 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="10dp">
 
                 <FrameLayout
                     android:layout_width="192dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="125dp">
+                    android:layout_marginLeft="125dp"
+                    android:layout_marginTop="10dp">
                     <View
                         android:id="@+id/takePictureBackGround"
                         android:layout_width="match_parent"
@@ -186,7 +187,8 @@
                     android:layout_width="192dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginRight="125dp">
+                    android:layout_marginRight="120dp"
+                    android:layout_marginTop="10dp">
                     <View
                         android:id="@+id/selectPictureBackGround"
                         android:layout_width="match_parent"
@@ -214,7 +216,7 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="30dp">
                 <FrameLayout
                     android:layout_width="384dp"
                     android:layout_height="70dp"
@@ -247,50 +249,120 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="850dp">
+                    android:layout_marginStart="700dp">
                     <View
                         android:id="@+id/buttonNameBackGround"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/gold" />
-
                     <Button
                         android:id="@+id/changeNameButton"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/transparent"></Button>
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+                    </Button>
                 </FrameLayout>
 
             </FrameLayout>
             <FrameLayout
+                android:id="@+id/changeUsernameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
+                <View
+                    android:id="@+id/changeUsernameBackGround"
+                    android:layout_width="384dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginRight="100dp"
+                    />
+                <View
+                    android:id="@+id/changeUsernameSecondBackGround"
+                    android:layout_width="384dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:background="@color/backGround"
+                    android:scaleX="0.95"
+                    android:layout_marginRight="100dp"/>
+
+                <EditText
+                    android:id="@+id/changeUsernameText"
+                    android:layout_width="374dp"
+                    android:layout_height="match_parent"
+                    android:text=""
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/darker_gray"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="25sp"
+                    android:layout_marginRight="90dp"/>
+                <View
+                    android:id="@+id/submitChangeNameBackGround"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="top|center"
+                    android:background="@color/gold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="210dp">
+                </View>
+                <View
+                    android:id="@+id/submitChangeName"
+                    android:layout_width="190dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="top|center"
+                    android:background="@color/backGround"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="210dp"/>
+
+                <Button
+                    android:id="@+id/submitChangeNameButton"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="top|center"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/confirm"
+                    android:textColor="@android:color/darker_gray"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="18sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="210dp">
+
+                </Button>
+            </FrameLayout>
+
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center">
+                android:layout_gravity="center_vertical">
                 <View
                     android:id="@+id/logOutBackGround"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:background="@color/gold">
-
+                    android:layout_gravity="top|center"
+                    android:background="@color/gold"
+                    android:layout_marginTop="50dp">
                 </View>
                 <View
                     android:id="@+id/buttonLogOut"
                     android:layout_width="190dp"
                     android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:background="@color/backGround" />
+                    android:layout_gravity="top|center"
+                    android:background="@color/backGround"
+                    android:layout_marginTop="55dp"/>
 
                 <Button
                     android:id="@+id/logOutButton"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
-                    android:layout_gravity="center"
+                    android:layout_gravity="top|center"
                     android:background="@android:color/transparent"
                     android:hint="@string/logOut"
                     android:textColor="@android:color/darker_gray"
                     android:textColorHint="@android:color/darker_gray"
-                    android:textSize="18sp">
+                    android:textSize="18sp"
+                    android:layout_marginTop="50dp">
 
                 </Button>
 
@@ -298,3 +370,4 @@
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>
+

@@ -22,6 +22,9 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import android.Manifest
 import android.net.Uri
+import android.view.View
+import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.ImageView
 
 class ProfileActivity : AppCompatActivity() {
@@ -35,10 +38,13 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var changeNameButton: Button
     private lateinit var auth : FirebaseAuth
     private lateinit var nameText : TextView
-    private lateinit var  database : DatabaseReference
+    private lateinit var database : DatabaseReference
     private lateinit var takePictureButton : Button
     private lateinit var profilePicture : ImageView
     private lateinit var selectPictureButton : Button
+    private lateinit var changeUsernameLayout : FrameLayout
+    private lateinit var changeUsernameText : EditText
+    private lateinit var submitChangeName : Button
     private var  photoUri: Uri? = null
     private val CAMERAREQUESTCODE = 100
     private val GALLERYREQUESTCODE = 200
@@ -71,6 +77,9 @@ class ProfileActivity : AppCompatActivity() {
         profilePicture = findViewById(R.id.profileImage)
         nameText = findViewById(R.id.nameText)
         changeNameButton = findViewById(R.id.changeNameButton)
+        changeUsernameLayout = findViewById(R.id.changeUsernameLayout)
+        changeUsernameText = findViewById(R.id.changeUsernameText)
+        submitChangeName = findViewById(R.id.submitChangeNameButton)
     }
 
     private fun buttonsLogic() {
@@ -79,13 +88,14 @@ class ProfileActivity : AppCompatActivity() {
         mapButton.setOnClickListener { changeActivity(MapActivity::class.java) }
         chatButton.setOnClickListener { changeActivity(ConversationActivity::class.java) }
         bossButton.setOnClickListener { changeActivity(BossActivity::class.java) }
-        changeNameButton.setOnClickListener { changeActivity(ChangeNameActivity::class.java) }
+        changeNameButton.setOnClickListener {   changeUsernameLayout.visibility = View.VISIBLE }
         logOutButton.setOnClickListener {
             auth.signOut()
             changeActivity(MainActivity::class.java)
         }
         takePictureButton.setOnClickListener{ openCamera() }
         selectPictureButton.setOnClickListener{ selectPicture() }
+        submitChangeName.setOnClickListener { changeUsername() }
     }
 
     private fun changeActivity(activityClass: Class<*>) {
@@ -162,6 +172,42 @@ class ProfileActivity : AppCompatActivity() {
                     .show()
             }
         }
+    }
+
+    private fun changeUsername() {
+        if(changeUsernameText.text.toString().isEmpty()) {
+            Toast.makeText(this, "Please enter a new username", Toast.LENGTH_SHORT)
+                .show()
+            return
+        }
+
+        val newUsername = changeUsernameText.text.toString().trim()
+
+        val query : Query = database.orderByChild("email").equalTo(auth.currentUser?.email)
+
+        query.get()
+            .addOnSuccessListener { snapshot ->
+                for(childSnapshot in snapshot.children) {
+                    val userKey = childSnapshot.key
+
+                    if(userKey != null) {
+                      database.child(userKey).child("username").setValue(newUsername)
+                          .addOnSuccessListener {
+                              changeUsernameLayout.visibility = View.GONE
+                              Log.d("Firebase Test", "Username changed to $newUsername")
+                          }
+                          .addOnFailureListener { exception ->
+                              Log.d("Firebase Test", "Error changing username: $exception")
+                          }
+                    } else {
+                        Log.d("Firebase Test", "No user found with this email: ${auth.currentUser?.email}")
+                    }
+
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("Firebase Test", "Error while querying: $exception")
+            }
     }
 
     private fun createChildEventListener(): ChildEventListener {
