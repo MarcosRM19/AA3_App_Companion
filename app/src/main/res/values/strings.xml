@@ -133,4 +133,6 @@
     <string name="Upload">Upload Picture</string>
     <string name="Take">Take Picture</string>
     <string name="logOut">Log Out</string>"
+    <string name="newusername">New UserName</string>"
+    <string name="confirm">Confirm</string>"
 </resources>

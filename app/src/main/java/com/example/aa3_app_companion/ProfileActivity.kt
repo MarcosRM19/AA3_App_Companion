@@ -32,6 +32,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var chatButton: ImageButton
     private lateinit var bossButton: ImageButton
     private lateinit var logOutButton: Button
+    private lateinit var changeNameButton: Button
     private lateinit var auth : FirebaseAuth
     private lateinit var nameText : TextView
     private lateinit var  database : DatabaseReference
@@ -69,6 +70,7 @@ class ProfileActivity : AppCompatActivity() {
         selectPictureButton = findViewById(R.id.selectPictureText)
         profilePicture = findViewById(R.id.profileImage)
         nameText = findViewById(R.id.nameText)
+        changeNameButton = findViewById(R.id.changeNameButton)
     }
 
     private fun buttonsLogic() {
@@ -77,6 +79,7 @@ class ProfileActivity : AppCompatActivity() {
         mapButton.setOnClickListener { changeActivity(MapActivity::class.java) }
         chatButton.setOnClickListener { changeActivity(ConversationActivity::class.java) }
         bossButton.setOnClickListener { changeActivity(BossActivity::class.java) }
+        changeNameButton.setOnClickListener { changeActivity(ChangeNameActivity::class.java) }
         logOutButton.setOnClickListener {
             auth.signOut()
             changeActivity(MainActivity::class.java)

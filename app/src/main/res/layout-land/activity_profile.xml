@@ -253,12 +253,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/gold" />
+
                     <Button
                         android:id="@+id/changeNameButton"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
-                    </Button>
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"></Button>
                 </FrameLayout>
 
             </FrameLayout>

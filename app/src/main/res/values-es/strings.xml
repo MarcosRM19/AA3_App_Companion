@@ -134,4 +134,6 @@
     <string name="Upload">Sube Imagen</string>
     <string name="Take">Tome Imagen</string>
     <string name="logOut">Cerrar Sesion</string>
+    <string name="newusername">Nuevo Nombre</string>"
+    <string name="confirm">Confirma</string>"
 </resources>
