@@ -39,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:scaleX="0.9"
                 android:scaleY="0.9"
-                android:layout_weight="0.65"
+                android:layout_weight="0.95"
                 android:src="@drawable/icon" />
 
             <LinearLayout
@@ -176,17 +176,10 @@
 
                 </FrameLayout>
                     <FrameLayout
-                        android:layout_width="110dp"
+                        android:layout_width="135dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="25dp">
-
-
-                        <Button
-                            android:id="@+id/googleButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"/>
 
                         <com.google.android.gms.common.SignInButton
                             android:id="@+id/google_sign_in_button"

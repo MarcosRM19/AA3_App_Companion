@@ -134,5 +134,7 @@
     <string name="Take">Take Picture</string>
     <string name="logOut">Log Out</string>"
     <string name="newusername">New UserName</string>"
-    <string name="confirm">Confirm</string>"
+    <string name="confirm">Confirm</string>
+    <string name="webClientId">944638528163-j7qlgh0fss960hvu5um6eo53ob069s3g.apps.googleusercontent.com</string>
+    "
 </resources>

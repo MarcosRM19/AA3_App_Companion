@@ -26,6 +26,11 @@ import android.view.View
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageView
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -45,9 +50,12 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var changeUsernameLayout : FrameLayout
     private lateinit var changeUsernameText : EditText
     private lateinit var submitChangeName : Button
+    private lateinit var googleSignInClient: GoogleSignInClient
     private var  photoUri: Uri? = null
     private val CAMERAREQUESTCODE = 100
     private val GALLERYREQUESTCODE = 200
+
+    private lateinit var gso : GoogleSignInOptions
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +66,13 @@ class ProfileActivity : AppCompatActivity() {
         val dataBaseUrl = "https://app-companion-elden-ring-default-rtdb.europe-west1.firebasedatabase.app/"
         database = FirebaseDatabase.getInstance(dataBaseUrl).getReference("users")
         database.addChildEventListener(createChildEventListener())
+
+        gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.webClientId))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         initViews()
         buttonsLogic()
@@ -88,11 +103,8 @@ class ProfileActivity : AppCompatActivity() {
         mapButton.setOnClickListener { changeActivity(MapActivity::class.java) }
         chatButton.setOnClickListener { changeActivity(ConversationActivity::class.java) }
         bossButton.setOnClickListener { changeActivity(BossActivity::class.java) }
-        changeNameButton.setOnClickListener {   changeUsernameLayout.visibility = View.VISIBLE }
-        logOutButton.setOnClickListener {
-            auth.signOut()
-            changeActivity(MainActivity::class.java)
-        }
+        changeNameButton.setOnClickListener { checkIfCanChangeName() }
+        logOutButton.setOnClickListener { logOut() }
         takePictureButton.setOnClickListener{ openCamera() }
         selectPictureButton.setOnClickListener{ selectPicture() }
         submitChangeName.setOnClickListener { changeUsername() }
@@ -103,10 +115,49 @@ class ProfileActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun showName() {
+    private fun checkIfCanChangeName() {
         val currentUser = auth.currentUser
 
         if(currentUser != null) {
+            //Check if signed with google
+            if (currentUser.providerData.any { it.providerId == GoogleAuthProvider.PROVIDER_ID }) {
+                Toast.makeText(this, "Can´t change Google username ", Toast.LENGTH_SHORT)
+                    .show()
+                return
+            }
+            changeUsernameLayout.visibility = View.VISIBLE
+        }
+    }
+
+    private fun logOut() {
+        val currentUser : FirebaseUser? = auth.currentUser
+
+        if(currentUser != null) {
+            val isGoogleSignIn = currentUser.providerData.any { it.providerId == GoogleAuthProvider.PROVIDER_ID }
+            if(isGoogleSignIn) {
+                GoogleSignIn.getClient(this, gso).signOut()
+            }
+        }
+
+        auth.signOut()
+        changeActivity(MainActivity::class.java)
+        finish()
+    }
+
+    private fun showName() {
+
+        val currentUser = auth.currentUser
+
+        if(currentUser != null) {
+
+            //Check if signed with google
+            if (currentUser.providerData.any { it.providerId == GoogleAuthProvider.PROVIDER_ID }) {
+                // Get the display name if signed in with Google
+                val username = currentUser.displayName
+                nameText.text = username
+                return
+            }
+
             val email = currentUser.email
 
             val query : Query = database.orderByChild("email").equalTo(email)
@@ -175,6 +226,9 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun changeUsername() {
+
+        val currentUser = auth.currentUser
+
         if(changeUsernameText.text.toString().isEmpty()) {
             Toast.makeText(this, "Please enter a new username", Toast.LENGTH_SHORT)
                 .show()
