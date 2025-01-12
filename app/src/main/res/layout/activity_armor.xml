@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ArmorActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background" />
+
+        <View
+            android:id="@+id/blackOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:alpha="0.9" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/armorbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gold"
+                android:elevation="4dp"
+                app:menu="@menu/custom_class_toolbar"    />
+
+            <TextView
+                android:id="@+id/armornameText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:textSize="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/armordescriptionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="@android:color/transparent"
+                android:textSize="15dp"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/attributeText"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text = "@string/attribute"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="25dp"
+                android:background="@android:color/transparent"
+                android:textSize="20dp"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/standardText"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="35dp"
+                android:background="@android:color/transparent"
+                android:textSize="15dp"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/strikeText"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="35dp"
+                android:background="@android:color/transparent"
+                android:textSize="15dp"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/slashText"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="35dp"
+                android:background="@android:color/transparent"
+                android:textSize="15dp"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:id="@+id/pierceText"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="35dp"
+                android:background="@android:color/transparent"
+                android:textSize="15dp"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:id="@+id/magicarmorText"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="35dp"
+                android:background="@android:color/transparent"
+                android:textSize="15dp"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:id="@+id/fireText"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="35dp"
+                android:background="@android:color/transparent"
+                android:textSize="15dp"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/lightText"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="35dp"
+                android:background="@android:color/transparent"
+                android:textSize="15dp"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:id="@+id/holyText"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="35dp"
+                android:background="@android:color/transparent"
+                android:textSize="15dp"
+                android:textColor="@android:color/white" />
+            <ImageView
+                android:id="@+id/armorImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+
+            </ImageView>
+
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>
