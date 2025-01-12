@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AA3_App_Companion</string>
+    <string name="email">Correo Electrónico</string>
     <string name="username">Usuario</string>
     <string name="passwrod">Contraseña</string>
     <string name="repeat_passwrod">Repite Contraseña</string>
@@ -130,4 +131,10 @@
     <string name="HLY">HLY</string>
     <string name="PHS">PHS</string>
     <string name="CRT">CRT</string>
+    <string name="Upload">Sube Imagen</string>
+    <string name="Take">Tome Imagen</string>
+    <string name="logOut">Cerrar Sesion</string>
+    <string name="newusername">Nuevo Nombre</string>"
+    <string name="confirm">Confirmar</string>"
+    <string name="webClientId">944638528163-j7qlgh0fss960hvu5um6eo53ob069s3g.apps.googleusercontent.com</string>
 </resources>

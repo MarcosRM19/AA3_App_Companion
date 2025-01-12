@@ -1,7 +1,5 @@
 package models
 
-import android.widget.ImageView
-
 data class Classes(
     val name: String,
     val description: String,

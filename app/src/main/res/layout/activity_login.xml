@@ -39,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:scaleX="0.9"
                 android:scaleY="0.9"
-                android:layout_weight="0.65"
+                android:layout_weight="0.99"
                 android:src="@drawable/icon" />
 
             <LinearLayout
@@ -162,7 +162,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@android:color/transparent">
-
                     </Button>
 
                     <TextView
@@ -171,12 +170,31 @@
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:hint="@string/login"
-                        android:textSize="20dp"
+                        android:textSize="20sp"
                         android:layout_gravity="center"
                         android:textColorHint="@android:color/darker_gray" />
 
                 </FrameLayout>
+                <FrameLayout
+                    android:layout_width="110dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp">
 
+
+                    <Button
+                        android:id="@+id/googleButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"/>
+
+                    <com.google.android.gms.common.SignInButton
+                        android:id="@+id/google_sign_in_button"
+                        android:layout_width="130dp"
+                        android:layout_height="40sp"
+                        android:layout_gravity="top|center"/>
+
+                </FrameLayout>
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>

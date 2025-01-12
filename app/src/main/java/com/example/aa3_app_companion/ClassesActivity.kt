@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.analytics.FirebaseAnalytics
 import models.Classes
 import models.ClassesAdapter
 import models.ClassesResponse
@@ -25,6 +26,7 @@ class ClassesActivity : AppCompatActivity(), ClassesAdapter.OnButtonClickListene
     private lateinit var chatButton: ImageButton
     private lateinit var profileButton: ImageButton
     private lateinit var toolbar: Toolbar
+    private lateinit var analytics: FirebaseAnalytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +39,9 @@ class ClassesActivity : AppCompatActivity(), ClassesAdapter.OnButtonClickListene
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        analytics = FirebaseAnalytics.getInstance(this)
+        analytics.logEvent("OpenClassesActivity", null)
 
         classesData()
         ButtonsLogic()
@@ -89,8 +94,8 @@ class ClassesActivity : AppCompatActivity(), ClassesAdapter.OnButtonClickListene
         mapButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
         itemButton.setOnClickListener { ChangeActivity(ItemActivity::class.java) }
         bossButton.setOnClickListener { ChangeActivity(BossActivity::class.java) }
-        chatButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
-        profileButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
+        chatButton.setOnClickListener { ChangeActivity(ConversationActivity::class.java) }
+        profileButton.setOnClickListener { ChangeActivity(ProfileActivity::class.java) }
     }
 
     private fun ChangeActivity(activityClass: Class<*>) {

@@ -14,10 +14,10 @@ import android.util.Log
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.analytics.FirebaseAnalytics
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,6 +41,8 @@ class BossActivity : AppCompatActivity() {
     private lateinit var bossName: Array<TextView?>
     private lateinit var bossDescription: Array<TextView?>
     private lateinit var bossLocation: Array<TextView?>
+
+    private lateinit var analytics : FirebaseAnalytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +71,9 @@ class BossActivity : AppCompatActivity() {
             "Grafted Scion",
             "Godrick the Grafted"
         )
+
+        analytics = FirebaseAnalytics.getInstance(this)
+        analytics.logEvent("OpenBossActivity", null)
 
         ButtonsLogic()
         classesData(bossIds)
@@ -233,8 +238,8 @@ class BossActivity : AppCompatActivity() {
         classesButton.setOnClickListener { ChangeActivity(ClassesActivity::class.java) }
         itemButton.setOnClickListener { ChangeActivity(ItemActivity::class.java) }
         mapButton.setOnClickListener { ChangeActivity(MapActivity::class.java) }
-        chatButton.setOnClickListener { ChangeActivity(ClassesActivity::class.java) }
-        profileButton.setOnClickListener { ChangeActivity(ClassesActivity::class.java) }
+        chatButton.setOnClickListener { ChangeActivity(ConversationActivity::class.java) }
+        profileButton.setOnClickListener { ChangeActivity(ProfileActivity::class.java) }
     }
 
     private fun ChangeActivity(activityClass: Class<*>) {
