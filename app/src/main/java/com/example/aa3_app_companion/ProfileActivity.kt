@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import android.Manifest
+import android.app.AlertDialog
 import android.content.ContentValues
 import android.graphics.Bitmap
 import android.net.Uri
@@ -57,6 +58,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var submitChangeName : Button
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var analytics: FirebaseAnalytics
+    private lateinit var closeAppButton : Button
     private var  photoUri: Uri? = null
     private val CAMERA_REQUEST_CODE = 100
     private val GALLERY_REQUEST_CODE = 200
@@ -105,6 +107,7 @@ class ProfileActivity : AppCompatActivity() {
         changeUsernameLayout = findViewById(R.id.changeUsernameLayout)
         changeUsernameText = findViewById(R.id.changeUsernameText)
         submitChangeName = findViewById(R.id.submitChangeNameButton)
+        closeAppButton = findViewById(R.id.closeAppButton)
     }
 
     private fun buttonsLogic() {
@@ -118,6 +121,7 @@ class ProfileActivity : AppCompatActivity() {
         takePictureButton.setOnClickListener{ openCamera() }
         selectPictureButton.setOnClickListener{ selectPicture() }
         submitChangeName.setOnClickListener { changeUsername() }
+        closeAppButton.setOnClickListener { ShowExitConfirmationDialog() }
     }
 
     private fun changeActivity(activityClass: Class<*>) {
@@ -343,5 +347,26 @@ class ProfileActivity : AppCompatActivity() {
                 Log.d("Firebase Test", "Cancelled - Error: $error")
             }
         }
+    }
+
+    private fun ShowExitConfirmationDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Close App")
+        builder.setMessage("¿Do you want to close the app?")
+
+        //Yes button
+        builder.setPositiveButton("Yes") { dialog, _ ->
+            finishAffinity() // Close all the activities
+            System.exit(0)   // Close the app
+        }
+
+        // No button
+        builder.setNegativeButton("No") { dialog, _ ->
+            dialog.dismiss() // Close the pop up
+        }
+
+        // Show pop up
+        val dialog = builder.create()
+        dialog.show()
     }
 }
