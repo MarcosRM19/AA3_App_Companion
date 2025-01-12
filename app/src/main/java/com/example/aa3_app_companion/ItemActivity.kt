@@ -8,8 +8,7 @@ import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.analytics.FirebaseAnalytics
 import models.Armor
 import models.AttackPower
 import models.Attributes
@@ -25,6 +24,7 @@ class ItemActivity : AppCompatActivity() {
     private lateinit var mapButton: ImageButton
     private lateinit var chatButton: ImageButton
     private lateinit var profileButton: ImageButton
+    private lateinit var analytics : FirebaseAnalytics
 
     private lateinit var toolbar: Toolbar
 
@@ -40,6 +40,9 @@ class ItemActivity : AppCompatActivity() {
         InitMagic()
         InitArmor()
         InitWeapon()
+
+        analytics = FirebaseAnalytics.getInstance(this)
+        analytics.logEvent("OpenItemActivity", null)
 
         ButtonsLogic()
 

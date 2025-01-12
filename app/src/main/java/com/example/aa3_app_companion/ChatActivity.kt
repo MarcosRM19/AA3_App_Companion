@@ -10,12 +10,10 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.analytics.FirebaseAnalytics
 import models.ChatAdapter
-import org.w3c.dom.Text
 
 class ChatActivity : AppCompatActivity() {
 
@@ -28,6 +26,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var messageInput: EditText
     private lateinit var sendButton: Button
     private lateinit var adapter: ChatAdapter
+    private lateinit var analytics: FirebaseAnalytics
     private val messages = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +45,8 @@ class ChatActivity : AppCompatActivity() {
         chatRecyclerView.adapter = adapter
         chatRecyclerView.layoutManager = LinearLayoutManager(this)
 
+        analytics = FirebaseAnalytics.getInstance(this)
+        analytics.logEvent("OpenChatActivity", null)
 
         ButtonLogic()
         SetFriendInformation()

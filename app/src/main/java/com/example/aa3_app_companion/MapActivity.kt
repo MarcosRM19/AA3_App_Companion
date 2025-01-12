@@ -6,9 +6,7 @@ import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.analytics.FirebaseAnalytics
 
 class MapActivity : AppCompatActivity() {
 
@@ -17,6 +15,7 @@ class MapActivity : AppCompatActivity() {
     private lateinit var bossButton : ImageButton
     private lateinit var chatButton : ImageButton
     private lateinit var profileButton : ImageButton
+    private lateinit var analytics : FirebaseAnalytics
 
     private  lateinit var toolbar : Toolbar
 
@@ -27,6 +26,9 @@ class MapActivity : AppCompatActivity() {
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        analytics = FirebaseAnalytics.getInstance(this)
+        analytics.logEvent("OpenMapActivity", null)
 
         InitButtons()
         ButtonsLogic()

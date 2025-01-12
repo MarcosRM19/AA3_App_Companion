@@ -9,11 +9,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.ChildEventListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -26,11 +24,18 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var  passwordConfirmText : EditText
     private lateinit var  auth: FirebaseAuth
     private lateinit var  database : DatabaseReference
+    private lateinit var analytics: FirebaseAnalytics
+    private var startTime : Long = 0
+    private var endTime : Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_register)
+
+        startTime = System.currentTimeMillis()
+
+        analytics = FirebaseAnalytics.getInstance(this)
 
         // Init firebase auth
         auth = FirebaseAuth.getInstance()
@@ -42,6 +47,16 @@ class RegisterActivity : AppCompatActivity() {
         BindViews()
 
         registerButton.setOnClickListener {onRegisterButtonClick(dataId)}
+    }
+
+    override fun onResume() {
+        super.onResume()
+        endTime = System.currentTimeMillis()
+        val executionTime = endTime - startTime
+        val bundle = Bundle().apply {
+            putString(FirebaseAnalytics.Param.METHOD, "Time user spent while registering: $executionTime")
+        }
+        analytics.logEvent(FirebaseAnalytics.Event.SIGN_UP, bundle)
     }
 
     private fun BindViews()

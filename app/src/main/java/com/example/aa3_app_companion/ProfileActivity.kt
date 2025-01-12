@@ -21,7 +21,10 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import android.Manifest
+import android.content.ContentValues
+import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.view.View
 import android.widget.EditText
 import android.widget.FrameLayout
@@ -29,8 +32,10 @@ import android.widget.ImageView
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import java.io.OutputStream
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -51,9 +56,11 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var changeUsernameText : EditText
     private lateinit var submitChangeName : Button
     private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var analytics: FirebaseAnalytics
     private var  photoUri: Uri? = null
-    private val CAMERAREQUESTCODE = 100
-    private val GALLERYREQUESTCODE = 200
+    private val CAMERA_REQUEST_CODE = 100
+    private val GALLERY_REQUEST_CODE = 200
+    private val WRITE_GALLERY_REQUEST_CODE = 300
 
     private lateinit var gso : GoogleSignInOptions
 
@@ -73,6 +80,9 @@ class ProfileActivity : AppCompatActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        analytics = FirebaseAnalytics.getInstance(this)
+        analytics.logEvent("OpenProfileActivity", null)
 
         initViews()
         buttonsLogic()
@@ -183,40 +193,86 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun openCamera() {
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
+            && ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             if(cameraIntent.resolveActivity(packageManager) != null) {
-                startActivity(cameraIntent)
+                startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE)
             } else {
                 Toast.makeText(this, "There is no camera app", Toast.LENGTH_SHORT)
                     .show()
             }
         } else {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), CAMERAREQUESTCODE)
+            if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), CAMERA_REQUEST_CODE)
+            }
+            if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), WRITE_GALLERY_REQUEST_CODE)
+            }
         }
     }
 
     private fun selectPicture() {
         val galleryIntent = Intent(Intent.ACTION_PICK)
         galleryIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
-        startActivityForResult(galleryIntent, GALLERYREQUESTCODE)
+        startActivityForResult(galleryIntent, GALLERY_REQUEST_CODE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(requestCode == GALLERYREQUESTCODE && resultCode == RESULT_OK) {
-            val imageUri: Uri? = data?.data
-            if(imageUri != null) {
-                profilePicture.setImageURI(imageUri)
+        if(requestCode == GALLERY_REQUEST_CODE && resultCode == RESULT_OK) {
+            photoUri = data?.data
+            if(photoUri != null) {
+                profilePicture.setImageURI(photoUri)
             }
+        }
+
+        if(requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
+            val imageBitmap = data?.extras?.get("data") as? Bitmap
+            profilePicture.setImageBitmap(imageBitmap)
+            saveImageToGallery(imageBitmap)
+        }
+    }
+
+    private fun saveImageToGallery(bitmap : Bitmap?) {
+        val contentValues = ContentValues().apply {
+            put(MediaStore.Images.Media.DISPLAY_NAME, "captured_Image_${System.currentTimeMillis()}")
+            put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
+            if(Build.VERSION.SDK_INT >= Build .VERSION_CODES.Q) {
+                put(MediaStore.Images.Media.IS_PENDING, 1)
+            }
+        }
+
+        val uri: Uri? = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
+
+        uri?.let {
+            val outputStream : OutputStream? = contentResolver.openOutputStream(uri)
+
+            outputStream?.use {
+                bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, it)
+            }
+
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                contentValues.clear()
+                contentValues.put(MediaStore.Images.Media.IS_PENDING, 0)
+                contentResolver.update(uri, contentValues, null, null)
+            }
+
+            Toast.makeText(this, "Image saved to gallery", Toast.LENGTH_SHORT)
+                .show()
+
+        } ?: run {
+            Toast.makeText(this, "Failed to save image to gallery", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode == CAMERAREQUESTCODE){
-            if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        if(requestCode == CAMERA_REQUEST_CODE || requestCode == WRITE_GALLERY_REQUEST_CODE){
+            if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) ==PackageManager.PERMISSION_GRANTED) {
                 openCamera()
             } else {
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT)
