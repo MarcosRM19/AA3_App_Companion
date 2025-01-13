@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var  loginButton : Button
     private lateinit var  registerButton : Button
+    private lateinit var  apiButton : Button
     private lateinit var  emailText : EditText
     private lateinit var  passwordText : EditText
     private lateinit var googleButton : com.google.android.gms.common.SignInButton
@@ -48,6 +49,7 @@ class LoginActivity : AppCompatActivity() {
 
         loginButton = findViewById(R.id.loginButton)
         registerButton = findViewById(R.id.registerButton)
+        apiButton = findViewById(R.id.apiButton)
         emailText = findViewById(R.id.usernameText)
         passwordText = findViewById(R.id.pawsswordText)
         googleButton = findViewById(R.id.google_sign_in_button)
@@ -56,6 +58,7 @@ class LoginActivity : AppCompatActivity() {
         loginButton.setOnClickListener {onButtonClickLogin()}
         registerButton.setOnClickListener {onButtonClickRegister()}
         googleButton.setOnClickListener {onButtonClickGoogle()}
+        apiButton.setOnClickListener {ChangeActivity(SecondApiActivity::class.java)}
 
     }
 
@@ -160,5 +163,10 @@ class LoginActivity : AppCompatActivity() {
     private fun onButtonClickRegister()
     {
         startActivity(Intent(this, RegisterActivity::class.java))
+    }
+
+    private fun ChangeActivity(activityClass: Class<*>) {
+        val intent = Intent(this, activityClass)
+        startActivity(intent)
     }
 }
