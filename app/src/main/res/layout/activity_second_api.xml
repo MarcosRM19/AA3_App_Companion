@@ -7,4 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".SecondApiActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/apibar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gold"
+        android:elevation="4dp"
+        app:menu="@menu/custom_class_toolbar"    />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
